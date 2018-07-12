@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas1{
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1" width="500" height="500"></canvas>
+
+    <script>
+        var oCanvas = document.getElementById('canvas1');
+        var oCtx = oCanvas.getContext('2d');
+        oCtx.moveTo(20,20);
+        oCtx.lineTo(100,0);
+        oCtx.stroke();
+        oCtx.beginPath();
+        oCtx.moveTo(20,20);
+        oCtx.lineTo(10,10);
+        oCtx.stroke();
+        oCtx.beginPath();
+        oCtx.moveTo(20,20);
+        oCtx.lineTo(123,134);
+        oCtx.stroke();
+        oCtx.beginPath();
+        oCtx.moveTo(20,20);
+        oCtx.lineTo(45,68);
+        oCtx.stroke();
+    </script>
+</body>
+</html>

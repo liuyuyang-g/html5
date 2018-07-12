@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">btn</button>
+    <div id="content">
+
+    </div>
+
+    <script>
+        var oBtn = document.querySelector('#btn');
+        var oContent = document.querySelector('#content');
+        oBtn.onclick = function () {
+            var arr = [];
+            /*生成7个随机数放到数组中*/
+            for(var i=0; i<7; i++){
+                arr.push(Math.floor(Math.random()*35+1));
+            }
+            oContent.innerHTML = arr;
+            /*pushState 三个参数: 数据 标题 地址（可选）*/
+            history.pushState(arr,'');
+        };
+        /*popstate 事件：读取数据 event.state*/
+        window.onpopstate = function (e) {
+            oContent.innerHTML = e.state;
+        }
+    </script>
+</body>
+</html>

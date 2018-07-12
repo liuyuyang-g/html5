@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <buttton id="btn">btn</buttton>
+    <div id="div1"></div>
+
+    <script>
+        var oBtn = document.querySelector('#btn');
+        var oDiv = document.querySelector('#div1');
+        oBtn.onclick = function () {
+            var arr = [];
+            for(var i=0; i<7; i++){
+                arr.push(Math.floor(Math.random()*35+1));
+            }
+            oDiv.innerHTML = arr;
+            history.pushState(arr, '');
+        }
+        window.onpopstate = function (e) {
+            oDiv.innerHTML = e.state;
+        }
+    </script>
+</body>
+</html>

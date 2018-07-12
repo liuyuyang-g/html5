@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCookie(key, value, day) {
+        var str = key+'='+value+';';
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+            str += 'expires='+date;
+        }
+        document.cookie = str;
+    }
+    setCookie('age',12,20);
+    setCookie('name','abs',20);
+
+    function getCookie(key) {
+        /*split把字符串分割为字符串数组*/
+        /*"age=12; name=abs"*/
+        /*第一次以；分割注意分号后面写空格*/
+        var arr = document.cookie.split('; ');
+        for(var i=0; i<arr.length; i++){
+            /*第二次以=分割*/
+            var arr2 = arr[i].split('=');
+            if(key == arr2[0]){
+                return arr2[1];
+            }
+        }
+    }
+    console.log(getCookie('age'));
+    console.log(getCookie('name'));
+
+    function removeCookie(key) {
+        setCookie(key,'',-1);
+    }
+    removeCookie('name');
+    removeCookie('age');
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person1 = {
+        name:'lisi',
+        age:12,
+        sex:'man',
+        father:{
+            name:'wangwu',
+            age:35
+        }
+    };
+    function clone(obj) {
+        var newObj = {};
+        for(var p in obj){  //数组循环也可以写成for(key in obj){}
+            if(typeof obj[p] == 'object'){  //如果对象中还有对象属性,不进行这一步还是浅拷贝
+                newObj[p] = clone(obj[p]);  //递归
+            }else{
+                newObj[p] = obj[p];
+            }
+        }
+        return newObj;
+    }
+    var person2 = clone(person1);
+    person1.name = 'zhangsan';
+    person1.father.age = 37;
+    console.log(person2);
+</script>
+</body>
+</html>
